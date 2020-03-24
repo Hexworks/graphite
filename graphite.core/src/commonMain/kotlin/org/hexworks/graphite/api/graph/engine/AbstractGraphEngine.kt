@@ -3,7 +3,7 @@ package org.hexworks.graphite.api.graph.engine
 import org.hexworks.graphite.api.data.Edge
 import org.hexworks.graphite.api.data.EdgeType
 import org.hexworks.graphite.api.data.Vertex
-import org.hexworks.graphite.api.data.base.BaseVertex
+import org.hexworks.graphite.api.data.base.DefaultVertex
 import org.hexworks.graphite.api.graph.Graph
 
 @Suppress("SetterBackingFieldAssignment")
@@ -51,7 +51,7 @@ abstract class AbstractGraphEngine(
     fun verticesToString(): String {
         var res = "V = {"
         for (v in vertices()) {
-            res += BaseVertex.toString(v).toString() + ", "
+            res += DefaultVertex.toString(v).toString() + ", "
         }
         res += "}"
         return res

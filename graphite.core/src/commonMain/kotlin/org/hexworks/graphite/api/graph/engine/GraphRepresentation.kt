@@ -1,5 +1,6 @@
 package org.hexworks.graphite.api.graph.engine
 
+import org.hexworks.cobalt.datatypes.Maybe
 import org.hexworks.graphite.api.data.Edge
 import org.hexworks.graphite.api.data.EdgeType
 import org.hexworks.graphite.api.data.Vertex
@@ -62,35 +63,35 @@ interface GraphRepresentation {
      * in the graph.
      * @return the newly created [Edge]
      */
-    fun addEdge(v1: Vertex<Any>, v2: Vertex<Any>): Edge<Any>
+    fun addEdge(v1: Vertex<Any>, v2: Vertex<Any>): Maybe<Edge<Any>>
 
     /**
      * Connects the vertices [v1] and [v2] which are already
      * in the graph.
      * @return the newly created [Edge]
      */
-    fun addEdge(v1: Vertex<Any>, v2: Vertex<Any>, weight: Float): Edge<Any>
+    fun addEdge(v1: Vertex<Any>, v2: Vertex<Any>, weight: Float): Maybe<Edge<Any>>
 
     /**
      * Adds the given [Edge] to the graph. [Edge.v1] and [Edge.v2]
      * have to be members.
      */
-    fun addEdge(edge: Edge<Any>): Edge<Any>
+    fun addEdge(edge: Edge<Any>): Maybe<Edge<Any>>
 
     /**
      * Removes the [Edge] with vertices ([v1], [v2]) from the graph.
      */
-    fun removeEdge(v1: Vertex<Any>, v2: Vertex<Any>): Edge<Any>
+    fun removeEdge(v1: Vertex<Any>, v2: Vertex<Any>): Maybe<Edge<Any>>
 
     /**
      * Returns the edge that connects ([v1], [v2]) from the graph.
      */
-    fun getEdge(v1: Vertex<Any>, v2: Vertex<Any>): Edge<Any>
+    fun getEdge(v1: Vertex<Any>, v2: Vertex<Any>): Maybe<Edge<Any>>
 
     /**
      * Removes [edge] form the graph.
      */
-    fun removeEdge(edge: Edge<Any>): Edge<Any>
+    fun removeEdge(edge: Edge<Any>): Maybe<Edge<Any>>
 
     /**
      * @return the number of vertices in the Graph

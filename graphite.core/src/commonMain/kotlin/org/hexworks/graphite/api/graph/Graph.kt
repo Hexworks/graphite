@@ -11,7 +11,7 @@ interface Graph : GraphRepresentation, Identifiable, Taggable, Disposable, Itera
 
     val graphEngine: GraphEngine
 
-    fun createGraphEngine(): GraphEngine
+    fun createGraphEngine(graph: Graph): GraphEngine
 
     /**
      * does this graph support multi edges

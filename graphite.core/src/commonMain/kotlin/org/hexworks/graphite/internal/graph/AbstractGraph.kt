@@ -14,11 +14,7 @@ abstract class AbstractGraph : Graph {
     final override val isEmpty: Boolean
         get() = this.graphEngine.isEmpty
 
-    final override val graphEngine: GraphEngine = createGraphEngine()
-
-    init {
-        graphEngine.graph = this
-    }
+    final override val graphEngine: GraphEngine = createGraphEngine(this)
 
     final override operator fun iterator(): Iterator<Vertex<Any>> {
         return this.graphEngine.iterator()
@@ -76,7 +72,7 @@ abstract class AbstractGraph : Graph {
         return this.graphEngine.addEdge(v1, v2, weight)
     }
 
-    final override fun addEdge(edge: Edge<Any>): Edge<Any> {
+    final override fun addEdge(edge: Edge<Any>): Maybe<Edge<Any>> {
         return this.graphEngine.addEdge(edge)
     }
 
@@ -88,7 +84,7 @@ abstract class AbstractGraph : Graph {
         return this.graphEngine.getEdge(v1, v2)
     }
 
-    final override fun removeEdge(edge: Edge<Any>): Edge<Any> {
+    final override fun removeEdge(edge: Edge<Any>): Maybe<Edge<Any>> {
         return this.graphEngine.removeEdge(edge)
     }
 

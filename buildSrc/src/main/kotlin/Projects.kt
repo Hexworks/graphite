@@ -3,6 +3,6 @@ import org.gradle.kotlin.dsl.project
 
 object Projects {
 
-    inline val DependencyHandlerScope.cobaltCore get() = project(":graphite.core")
+    inline val DependencyHandlerScope.graphiteCore get() = project(":graphite.core")
 
 }
